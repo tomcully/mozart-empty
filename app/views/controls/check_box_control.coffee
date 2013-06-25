@@ -1,26 +1,22 @@
 class App.CheckboxControl extends Mozart.Control
-  templateName: 'app/templates/controls/check_box_control'
+  tag: 'input'
+  typeHtml: 'checkbox'
+  skipTemplate: true
 
   init: ->
-    super()
-    @modelClass = Mozart.getPath(@model) if @model?
-    @unbind 'change:value', @updateValue
+    super
     @bind 'change:value', @updateValue
 
   afterRender: =>
-    @controlEl = $("##{@id}-cbx")
     @updateValue()
-    @setValue()
 
   updateValue: =>
-    fire = @value!=@controlEl.prop('checked')
-    @controlEl.prop('checked',@value)
-    @parent?.trigger?('valueChanged',@) if fire
+    return unless @element?
+    @element[0].checked = @value
 
   setValue: ->
-    fire = @value!=@controlEl.prop('checked')
-    @set 'value', @controlEl.prop('checked')
-    @parent?.trigger?('valueChanged',@) if fire
+    return unless @element?
+    @set('value',@element[0].checked)
 
   change: ->
     @setValue()

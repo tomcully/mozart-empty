@@ -1,33 +1,27 @@
 class App.TextControl extends Mozart.Control
-  templateName: 'app/templates/controls/text_control'
-  disableHtmlAttributes: true
+  tag: "input"
+  skipTemplate: true
 
   init: ->
-    super()
-    @controlId = "#{@id}-tbx"
+    super
     @bind 'change:value', @updateInputValue
       
   afterRender: =>
-    super()
-    @controlEl = $("##{@controlId}")
-    @copyHtmlAttrsToElement(@controlEl)
-    @controlEl[0].type = @typeHtml if @typeHtml?
+    @element.type = @typeHtml if @typeHtml?
     @updateInputValue()
     @element
 
   updateInputValue: =>
-    return null unless @controlEl?
-    @controlEl.val(@value) unless @writing 
+    return unless @element?
+    @element.val(@value)
 
   focus: ->
-    @controlEl.focus()
+    return unless @element?
+    @element.focus()
 
-  cancel: ->
-    @set 'value', @origValue
-    @controlEl.val(@value)
-    @controlEl.blur()
+  blur: ->
+    return unless @element?
+    @element.blur()
     
   keyUp: (e) ->
-    @writing = true
-    @set 'value', @controlEl.val()
-    @writing = false
+    @set 'value', @element.val()
