@@ -14,5 +14,7 @@ class App.AccordionControl extends Mozart.Collection
     @markActive()
 
   markActive: =>
-    view.element.toggleClass(@activeClassName, view.content[@idField] == @value) for id, view of @itemViews when view.element?
+    #iterate visible view items and add/remove @activeClassName if the content.id is our value
+    for id, view of @itemViews when view.element?
+      view.element.toggleClass(@activeClassName, view.content[@idField] == @value) 
       
