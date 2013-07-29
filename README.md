@@ -10,9 +10,15 @@ API, getting started guides and tutorials.
 
 ### Developing
 Once you have installed all of the above software dependencies, you need to install the application dependencies by
-running `npm install`. After that,  all you need to do is `grunt run` to compile all of the necessary code, and launch
-a static web server through which to view your application. The default address is:
-[http://localhost:8080/](http://localhost:8080/)
+running 
+
+```npm install```
+
+After that,  all you need to do is 
+
+```grunt run```
+
+Which compiles all of the necessary code, and launch a static web server through which to view your application. The default address is [http://localhost:8080/](http://localhost:8080/)
 
 You can change the web server's port by creating a `config.json` file like this:
 
