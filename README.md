@@ -7,7 +7,6 @@ API, getting started guides and tutorials.
 - [Node.js](http://nodejs.org/)
 - [GruntJS](http://gruntjs.com/)
 - [CoffeeScript](http://coffeescript.org/)
-- [SASS](http://sass-lang.com/) (Optional)
 
 ### Developing
 Once you have installed all of the above software dependencies, you need to install the application dependencies by
