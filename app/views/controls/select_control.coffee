@@ -6,8 +6,8 @@ class App.SelectControl extends Mozart.Control
 
   init: ->
     super
-    @bind 'change:value', @updateValue
-    @bind 'change:collection', @redraw
+    @subscribe 'change:value', @updateValue
+    @subscribe 'change:collection', @redraw
 
   afterRender: =>
     @element.empty()

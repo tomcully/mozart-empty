@@ -5,7 +5,7 @@ class App.CheckboxControl extends Mozart.Control
 
   init: ->
     super
-    @bind 'change:value', @updateValue
+    @subscribe 'change:value', @updateValue
 
   afterRender: =>
     @updateValue()

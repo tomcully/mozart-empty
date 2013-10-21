@@ -2,9 +2,9 @@ class App.CollectionPageControl extends Mozart.Control
   templateName: 'app/templates/controls/collection_page_control'
 
   init: ->
-    super()
-    @bind 'change:pageCurrent', @redraw
-    @bind 'change:pageTotal', @redraw
+    super
+    @subscribe 'change:pageCurrent', @redraw
+    @subscribe 'change:pageTotal', @redraw
 
   beforeRender: =>
     @pages = []

@@ -4,7 +4,7 @@ class App.TextControl extends Mozart.Control
 
   init: ->
     super
-    @bind 'change:value', @updateInputValue
+    @subscribe 'change:value', @updateInputValue
       
   afterRender: =>
     @element.type = @typeHtml if @typeHtml?
@@ -12,7 +12,7 @@ class App.TextControl extends Mozart.Control
     @element
 
   updateInputValue: =>
-    return unless @element?
+    return unless @element? and !@writing
     @element.val(@value)
 
   focus: ->
@@ -24,4 +24,6 @@ class App.TextControl extends Mozart.Control
     @element.blur()
     
   keyUp: (e) ->
+    @writing = true
     @set 'value', @element.val()
+    @writing = false

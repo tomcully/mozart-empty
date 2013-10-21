@@ -7,7 +7,7 @@ class App.AccordionControl extends Mozart.Collection
 
   init: ->
     super
-    @bind 'change:value', @markActive
+    @subscribe 'change:value', @markActive
 
   draw: =>
     super
